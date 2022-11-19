@@ -3,11 +3,9 @@ import Movies from './Movies';
 
 const Listar = ({infoBatman, setSaveLink}) => {
 
-    console.log(infoBatman);
-
     return (
         <div>
-            <h1 className='text-5xl font-black text-center'>Batman Movies</h1>
+            <h1 className='text-5xl font-black text-center mt-3'>Batman Movies</h1>
             {
                 infoBatman.map((item) => {
                     

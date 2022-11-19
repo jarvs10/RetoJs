@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import Header from './components/Header'
 import Listar from './components/Listar'
+import {Link, Outlet} from 'react-router-dom'
+import Batman1 from './pages/Batman1';
 
 function App() {
 
@@ -18,7 +20,11 @@ function App() {
 
     useEffect(() => {
         if(saveLink === 'tt0096895'){
-            console.log('clickeando img 1');
+            console.log('clikeando 1');
+            <Link to={Batman1}/>
+             
+        } else if (saveLink === 'tt0468569'){
+            console.log('clikeando 2');
         }
     }, [saveLink])
 
@@ -33,6 +39,8 @@ function App() {
                 infoBatman={infoBatman}
                 setSaveLink={setSaveLink}
             />
+
+            <Outlet/>
         </>
     )
 }
