@@ -1,9 +1,14 @@
-import React from 'react'
+import { Link } from "react-router-dom";
 
 const Movies = ({Title, Year, Poster, imdbID, setSaveLink}) => {
 
-    const handleLink = () => {
-        setSaveLink(imdbID);
+    const handleLink = (id) => {
+        if(id === 'tt0096895'){
+            <Link to='/batman1'>Leer mas</Link>
+        }
+        console.log(id);
+        //setSaveLink(imdbID);
+
     }
 
     return (
@@ -17,14 +22,15 @@ const Movies = ({Title, Year, Poster, imdbID, setSaveLink}) => {
                         <img
                             className='mx-auto'
                             width='400'
-                            src={Poster} 
+                            src={Poster}
+                            alt='img bat'
                         />
                     </li>
                     <input 
-                        className='mt-2 font-bold uppercase py-2 px-5 bg-indigo-600 hover:bg-indigo-800 text-white cursor-pointer'
-                        type="button" 
-                        value="Leer Mas"
-                        onClick={handleLink}
+                        className='mt-2 font-bold uppercase py-2 px-5 bg-indigo-600 hover:bg-indigo-800 text-white cursor-pointer rounded-md'
+                        type="button"
+                        value= 'Leer mas' 
+                        onClick={() => handleLink(imdbID)}
                     />
                 </ul>
             </div>

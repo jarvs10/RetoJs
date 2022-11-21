@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
-import Header from './components/Header'
 import Listar from './components/Listar'
-import {Link, Outlet} from 'react-router-dom'
-import Batman1 from './pages/Batman1';
+import { Link, Outlet } from 'react-router-dom'
 
 function App() {
 
@@ -10,7 +8,7 @@ function App() {
 
     const [infoBatman, setInfoBatman] = useState([]);
 
-    const [saveLink, setSaveLink] = useState('');
+    //const [saveLink, setSaveLink] = useState('');
 
     const fetchApi = async () => {
         const response = await fetch(url)
@@ -18,15 +16,13 @@ function App() {
         setInfoBatman(responseJson.Search);
     }
 
-    useEffect(() => {
-        if(saveLink === 'tt0096895'){
-            console.log('clikeando 1');
-            <Link to={Batman1}/>
-             
-        } else if (saveLink === 'tt0468569'){
-            console.log('clikeando 2');
-        }
-    }, [saveLink])
+    // useEffect(() => {
+    //     if (saveLink === 'tt0096895') {
+    //         <Link to='/batman1' />
+            
+    //     } else if (saveLink === 'tt0468569') {
+    //     }
+    // }, [saveLink])
 
     useEffect(() => {
         fetchApi()
@@ -34,13 +30,17 @@ function App() {
 
     return (
         <>
-            <Header />
+            <div className='flex justify-between items-center p-3 bg-black'>
+                <h1 className='text-5xl font-black text-white'>RetoReactJs-BATMAN</h1>
+                <img src='https://p4.wallpaperbetter.com/wallpaper/452/930/411/batman-dc-comics-logo-wallpaper-preview.jpg' width='200' alt="logo batman" />
+
+                <Outlet />
+
+            </div>
             <Listar
                 infoBatman={infoBatman}
-                setSaveLink={setSaveLink}
+                //setSaveLink={setSaveLink}
             />
-
-            <Outlet/>
         </>
     )
 }
